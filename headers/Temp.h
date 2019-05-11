@@ -34,14 +34,14 @@ using std::array;
 
 // }
 
-void PrintArray(array<int, 10> newarray){
+void PrintArray(int newarray[]){
     int i=0;                    //Did this because a for loop would not work
     do{
         std::cout << newarray[i] << std:: endl; // so instead of using a for loop to iterate through, I use a do-while loop that
         i++;                                 //prints out the current index of the array before iterating, up until the array at index i is NULL
-    } while(i != newarray.size());
+    } while(i != 10);
 }
-void QuickSort(array<int, 10> myarray, int LowValue, int HighValue){
+void QuickSort(int myarray[], int LowValue, int HighValue){
     // if (LowValue < HighValue){
     //     int pivot = FindPivot(myarray, LowValue, HighValue);
     //     QuickSort(myarray, LowValue, pivot);          //Call this function for the all values within the array between the low value and the pivot value, including the pivot
@@ -51,10 +51,10 @@ void QuickSort(array<int, 10> myarray, int LowValue, int HighValue){
     // std::cout << SwapCount;
     // std::cout << ComparisonCount;
 
-        int i = LowValue;
+    int i = LowValue;
     int j = HighValue;
     int temp;    
-    int pivot = myarray[(LowValue + HighValue)/2];
+    int pivot = (LowValue + HighValue)/2;
     while (i <= j){
         while(myarray[i] < pivot){
             i++;
