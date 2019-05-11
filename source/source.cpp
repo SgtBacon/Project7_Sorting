@@ -6,7 +6,8 @@ using namespace std;
 
 void bubbleSort(array a);
 
-int main() {
+
+int main(){
     
 }
 
