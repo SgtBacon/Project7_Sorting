@@ -1,17 +1,48 @@
 //Colleen Bell and Jay Helm
-//Sources: Lecture slides, textbooks
+//Sources: Lecture slides, textbook, www.cplusplus.com/reference/
 #include <iostream>
 using namespace std;
 
-void bubbleSort(array a);
-void selectionSort(array a);
+void bubbleSort(int a[]);
+void selectionSort(int a[]);
 
 
 int main(){
+    int arrayAscending[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};    //creates arrays of ten items for each of the 4 conditions (I know you said 100, 200, 500, 1000, and 2000, but that's ridiculous and we'll see if I get to it.)
+    int arrayReversed[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    int arrayRandom[10] = {2, 5, 8, 1, 9, 0, 3, 4, 7, 6};
+    int arrayRandomDuplicates[10] = {9, 3, 5, 6, 5, 4, 3, 8, 1, 7};
 
+    cout << "Results of Bubble Sort:"<< endl;                   //pretty self-explanatory, couts results of bubble sort under the 4 conditions
+
+    cout << "\tWith array presorted:"<< endl;
+    bubbleSort(arrayAscending);
+
+    cout << "\tWith array reversed:"<< endl;
+    bubbleSort(arrayReversed);
+
+    cout << "\tWith array randomized:"<< endl;
+    bubbleSort(arrayRandom);
+
+    cout << "\tWith array randomized with duplicates:"<< endl;
+    bubbleSort(arrayRandomDuplicates);   
+
+    cout << "Results of Selection Sort:"<< endl;                //couts results of selection sort under the 4 conditions
+
+    cout << "\tWith array presorted:"<< endl;
+    selectionSort(arrayAscending);
+
+    cout << "\tWith array reversed:"<< endl;
+    selectionSort(arrayReversed);
+
+    cout << "\tWith array randomized:"<< endl;
+    selectionSort(arrayRandom);
+
+    cout << "\tWith array randomized with duplicates:"<< endl;
+    selectionSort(arrayRandomDuplicates);  
 }
 
-void bubbleSort(array a){
+void bubbleSort(int a[]){
 
     bool exchange_flag;
     int comps = 0;
@@ -34,17 +65,17 @@ void bubbleSort(array a){
         }
     } while (exchange_flag == true);        //repeat while exchanges were needed
 
-    cout << "Sorted Array:" << endl;
+    cout << "\t\tSorted Array:" << endl;
 
     for (int i = 0; i < a.size(); i++){     //prints contents of array
         cout << a[i] << endl;
     }
 
-    cout << "Comparisons Made:" << comps << endl;   //prints comps and swaps
-    cout << "Swaps Made:" << swaps << endl;
+    cout << "\t\tComparisons Made:" << comps << endl;   //prints comps and swaps
+    cout << "\t\tSwaps Made:" << swaps << endl;
 }
 
-void selectionSort(array a){
+void selectionSort(int a[]){
     int comps = 0;
     int swaps = 0;
 
@@ -63,12 +94,12 @@ void selectionSort(array a){
         }
     }
 
-    cout << "Sorted Array:" << endl;
+    cout << "\t\tSorted Array:" << endl;
 
     for (int i = 0; i < a.size(); i++){     //prints contents of array
         cout << a[i] << endl;
     }
 
-    cout << "Comparisons Made:" << comps << endl;   //prints comps and swaps
-    cout << "Swaps Made:" << swaps << endl;
+    cout << "\t\tComparisons Made:" << comps << endl;   //prints comps and swaps
+    cout << "\t\tSwaps Made:" << swaps << endl;
 }
