@@ -4,37 +4,77 @@
 #include <array>
 using std::array;
 
+    int SwapCount = 0;
+    int ComparisonCount = 0;
 
-array<int, 10> MyArray = {100, 92, 20, 1, 0, 47, 47, 74, 75, 76};
+//int FindPivot(array<int, 10> myarray, int LowValue, int HighValue){
+    // int i = LowValue;
+    // int j = HighValue;
+    // int temp;    
+    // int pivot = myarray[(LowValue + HighValue)/2];
+    // while (i <= j){
+    //     while(myarray[i] < pivot){
+    //         i++;
+    //     }
+    //     while(myarray[i] > pivot){
+    //         j--;
+    //     }
+    //     if ( i <= j) {
+    //         temp = myarray[i];
+    //         myarray[i] = myarray[j];
+    //         myarray[j] = temp;
+    //         i++;
+    //         j++;
+    //     }
+    // }
+//     std::swap(myarray[LowValue], myarray[i-1]);
+//     SwapCount++;
+//     std::cout << "Current Swap count: " << SwapCount << std::endl;
+//     return i-1;
 
-int FindPivot(int array[], int LowValue, int HighValue){
-    LowValue = array[0];    //Set The lower bound equal to the first element within the array
-    int i = LowValue+1;
-    int pivot = array[LowValue];
-    for(int j = LowValue+1;j<= HighValue;j++){
-        if(array[j] < pivot){
-            std::swap(array[i], array[j]);
-            i += 1;
+// }
+
+void PrintArray(array<int, 10> newarray){
+    int i=0;                    //Did this because a for loop would not work
+    do{
+        std::cout << newarray[i] << std:: endl; // so instead of using a for loop to iterate through, I use a do-while loop that
+        i++;                                 //prints out the current index of the array before iterating, up until the array at index i is NULL
+    } while(i != newarray.size());
+}
+void QuickSort(array<int, 10> myarray, int LowValue, int HighValue){
+    // if (LowValue < HighValue){
+    //     int pivot = FindPivot(myarray, LowValue, HighValue);
+    //     QuickSort(myarray, LowValue, pivot);          //Call this function for the all values within the array between the low value and the pivot value, including the pivot
+    //     QuickSort(myarray, pivot+1, HighValue);       //Call this function for all values within the array between the value after the pivot, to the last value, not including the pivot
+    // }
+    // PrintArray(myarray);
+    // std::cout << SwapCount;
+    // std::cout << ComparisonCount;
+
+        int i = LowValue;
+    int j = HighValue;
+    int temp;    
+    int pivot = myarray[(LowValue + HighValue)/2];
+    while (i <= j){
+        while(myarray[i] < pivot){
+            i++;
+        }
+        while(myarray[i] > pivot){
+            j--;
+        }
+        if ( i <= j) {
+            temp = myarray[i];
+            myarray[i] = myarray[j];
+            myarray[j] = temp;
+            i++;
+            j++;
         }
     }
-    std::swap(array[LowValue], array[i-1]);
-    return i-1;
-
-}
-
-void PrintArray(const int (&array)[]){
-    int i=0;                    //Did this because a for loop would not work
-    i=array[0];
-    do{
-        std::cout << array[i] << std:: endl; // so instead of using a for loop to iterate through, I use a do-while loop that
-        i++;                                 //prints out the current index of the array before iterating, up until the array at index i is NULL
-    } while(array[i] != NULL);
-
-}
-void QuickSort(int array[], int LowValue, int HighValue){
-    if (LowValue < HighValue){
-        int pivot = FindPivot(array, LowValue, HighValue);
-        QuickSort(array, LowValue, pivot);          //Call this function for the all values within the array between the low value and the pivot value, including the pivot
-        QuickSort(array, pivot+1, HighValue);       //Call this function for all values within the array between the value after the pivot, to the last value, not including the pivot
+    if (LowValue < j){
+        QuickSort(myarray, LowValue, j);
     }
+    if(i < HighValue){
+        QuickSort(myarray, i, HighValue);
+    }
+    PrintArray(myarray);
 };
