@@ -1,7 +1,6 @@
 //Colleen Bell and Jay Helm
 //Sources: Lecture slides, textbooks
 #include <iostream>
-
 using namespace std;
 
 void bubbleSort(array a);
@@ -9,7 +8,7 @@ void selectionSort(array a);
 
 
 int main(){
-    
+
 }
 
 void bubbleSort(array a){
