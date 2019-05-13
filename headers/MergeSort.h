@@ -66,7 +66,7 @@ using namespace std;
 //     }
 // }
 
-vector<int> merge(vector<int>& Vector, vector<int>& Vector2){
+vector<int> merge(vector<int> LeftVector, vector<int> RightVector){
     int comps;                  //Counter for Comparisons done
     int swaps;                  //Counter for Swaps done
     
@@ -75,30 +75,33 @@ vector<int> merge(vector<int>& Vector, vector<int>& Vector2){
     int i = 0;
     int m = 0;
 
-    while( i < Vector.size() && m < Vector2.size()){
-        if(Vector[i] < Vector2[m]){
-            NewVector.push_back(Vector[i]);
+    while( i < LeftVector.size() && m < RightVector.size()){
+        if(LeftVector[i] < RightVector[m]){
+            NewVector.push_back(LeftVector[i]);
             i++;
         }
         else{
-            NewVector.push_back(Vector2[m]);
+            NewVector.push_back(RightVector[m]);
             m++;
         }
     }
 
-    while(i < Vector.size()){
-        NewVector.push_back(Vector[i]);
+    while(i < LeftVector.size()){
+        NewVector.push_back(LeftVector[i]);
         i++;
     }
-    while(m < Vector2.size()){
-        NewVector.push_back(Vector2[m]);
+    while(m < RightVector.size()){
+        NewVector.push_back(RightVector[m]);
         m++;
+    }
+    for(int a=0;a<NewVector.size();a++){
+        cout << NewVector[a];
     }
     return NewVector;
 
 }
-vector<int> merge_sort(vector<int>& Vector){        //Decided to use vectors because arrays were giving too much trouble somehow
-    if(Vector.size() == 1){                         //Base case, if the Vector's size is 1, then return that vector, as a vector with one element is sorted
+vector<int> merge_sort(vector<int> Vector){        //Decided to use vectors because arrays were giving too much trouble somehow
+    if(Vector.size() == 1 || Vector.size() == 0){                         //Base case, if the Vector's size is 1 or 0, then return that vector, as a vector with one element is sorted
         return Vector;
     }
     else{
