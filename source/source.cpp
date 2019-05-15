@@ -76,8 +76,9 @@ int main(){
     cout << "\tWith array randomized with duplicates:"<< endl;
     selectionSort(arrayRandomDuplicatesHundred);
 
-    vector<int> UnsortedVector1;
-    vector<int> SortedVector1;
+    cout << "-------------------------------MERGE SORT-------------------------------" << endl << endl << endl;
+    vector<int> UnsortedVector1;        //Create a base Unsorted Vector
+    vector<int> SortedVector1;          //Create an unitialized Vector that is the sorted version of UnsortedVector
     for(int i=0;i<=2000;i++){
         UnsortedVector1.push_back(i);
     }
@@ -89,7 +90,7 @@ int main(){
     cout << endl << endl << endl;
 
     vector<int> UnsortedVector2;
-    vector<int> SortedVector2;
+    vector<int> SortedVector2;          //Create an unitialized Vector that is the sorted version of UnsortedVector
     for(int i=1000;i>=0;i--){
         UnsortedVector2.push_back(i);
     }
@@ -102,7 +103,7 @@ int main(){
     cout << endl << endl << endl;
 
     vector<int> UnsortedVector3;
-    vector<int> SortedVector3;
+    vector<int> SortedVector3;          //Create an unitialized Vector that is the sorted version of UnsortedVector
     for(int i=0;i<=500;i++){
         for(int m=0;m<=5;m++){
             UnsortedVector3.push_back(m);
@@ -118,6 +119,7 @@ int main(){
 
     vector<int> UnsortedVector4{92,111,62,9,133,196,31,63,82,55,41,28,136,198,32,107,77,61,115,164,124,104,46,1,173,39,88,108,193,120,140,160,7,123,22,89,130,137,100,158,146,192,87,78,54,153,129,60,43,147,167,34,67,80,138,15,187,70,64,181,132,58,20,166,97,151,186,13,121,142,27,119,188,177,24,71,19,125,135,6,29,114,93,134,35,23,25,191,126,18,109,118,94,33,47,101,117,148,30,172,144,5,75,183,76,4,66,98,53,74,8,91,152,143,21,112,180,45,154,26,38,185,51,176,49,110,96,197,127,150,174,95,155,99,162,113,116,86,56,81,179,72,170,122,40,50,12,17,195,90,169,102,106,3,141,200,165,57,14,36,85,52,199,175,37,161,184,83,103,182,168,68,149,171,42,44,178,10,16,139,59,11,84,65,48,156,145,105,79,194,190,163,189,128,73,131,159,69,2,157};
     vector<int> SortedVector4;  //^^^^^^^I love random number generators^^^^^^^^^^^
+                                //Create an unitialized Vector that is the sorted version of UnsortedVector
     
     cout << "\tMerge sort: 200 random elements with no duplicates: " << endl;
     SortedVector3 = merge_sort(UnsortedVector4);
@@ -125,14 +127,16 @@ int main(){
         cout << UnsortedVector4[i] << " ";
     }
 
+    cout << "-------------------------------INSERTION SORT-------------------------------" << endl << endl << endl;
 
-
-
-}
 
 
 
 }
+
+
+
+
 
 void bubbleSort(int a[]){
 
